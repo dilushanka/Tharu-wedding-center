@@ -1,152 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tharu Wedding Center - Wedding Decor Rentals</title>
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tharu Wedding Center - Premium Wedding Decor Rentals</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
     <style>
-        body {
-            font-family: 'Noto Sans Sinhala', Poppins, sans-serif;
-            background-color: #fdfbf7; /* Soft off-white background */
-        }
-        .hero-bg {
-            background-image: url('./img/front.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .font-playfair {
-            font-family: 'Poppins', serif;
-        }
-        .filter-button {
-            transition: all 0.3s ease;
-        }
-        .filter-button.active {
-            background-color: #c5a47e; /* Dusty Rose / Gold accent */
-            color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .item-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden; /* Ensures image corners are rounded with the card */
-        }
-        .item-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .item-card img {
-            transition: transform 0.3s ease;
-        }
-        .item-card:hover img {
-            transform: scale(1.05);
-        }
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 80vw;
-            max-height: 80vh;
-        }
-        .modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
+      :root {
+        --primary: #8e6c4d;
+        --secondary: #e8d4b9;
+        --accent: #c5a47e;
+        --light: #f8f5f0;
+        --dark: #3a2c1c;
+      }
+
+      body {
+        font-family: "Noto Sans Sinhala", Poppins, sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+      }
+      .social-icon i {
+        color: black;
+      }
+
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("./img/front.webp");
+        background-size: cover;
+        background-position: center;
+        height: 80vh;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .navbar-brand {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--dark);
+        margin: 0 10px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--dark);
+        border-color: var(--dark);
+        transform: translateY(-3px);
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 3rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+      }
+
+      .filter-button {
+        background: white;
+        color: var(--dark);
+        border: 1px solid var(--secondary);
+        border-radius: 50px;
+        padding: 8px 20px;
+        margin: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .filter-button:hover,
+      .filter-button.active {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .item-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .item-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .item-card-img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .item-card:hover .item-card-img {
+        transform: scale(1.05);
+      }
+
+      .category-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(142, 108, 77, 0.9);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-icon {
+        background-color: var(--secondary);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1050;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 80vw;
+        max-height: 80vh;
+        border-radius: 5px;
+      }
+
+      .modal-caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #f1f1f1;
+        padding: 20px 0;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+        opacity: 0.8;
+      }
+
+      .close-modal:hover {
+        opacity: 1;
+      }
+
+      .lazyload {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .lazyloaded {
+        opacity: 1;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        height: 100%;
+      }
+
+      .testimonial-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .rating {
+        color: #ffc107;
+        margin-bottom: 15px;
+      }
+
+      .feature-icon {
+        background-color: var(--secondary);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: var(--light);
+        padding: 50px 0 20px;
+      }
+
+      .footer-title {
+        position: relative;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+      }
+
+      .footer-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--accent);
+      }
+
+      .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
     </style>
-</head>
-<body>
-
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-playfair font-bold text-gray-800">Tharu Wedding Center</h1>
-            <nav>
-                <a href="#items" class="text-gray-600 hover:text-c5a47e px-3 py-2 rounded-md text-sm font-medium">Our Items</a>
-                <a href="#contact" class="text-gray-600 hover:text-c5a47e px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
-            </nav>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./img/logo.png" alt="Tharu Wedding Center Logo" height="100"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#items">Our Collection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Why Choose Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn btn-primary" href="#contact">Book Now</a>
+            </li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <section class="hero-bg h-96 flex items-center justify-center text-white">
-        <div class="text-center bg-black bg-opacity-50 p-8 rounded-lg">
-            <h2 class="text-5xl font-playfair font-bold mb-4">Best Wedding & Decor Items Rental Service</h2>
-            <p class="text-xl">Beautiful decor rentals for unforgettable moments.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg d-flex align-items-center">
+      <div class="container text-center text-white">
+        <h1 class="display-3 font-playfair fw-bold mb-4">
+          Elegant Wedding Decor Rentals
+        </h1>
+        <p class="lead mb-5">
+          Creating unforgettable moments with our exquisite collection of
+          wedding decor
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#items" class="btn btn-primary btn-lg">පොටෝ ඇල්බමය</a>
+          <a href="#contact" class="btn btn-outline-light btn-lg"
+            >සම්බන්ද කරගන්න</a
+          >
         </div>
+      </div>
     </section>
 
-    <section id="items" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-playfair font-bold text-center text-gray-800 mb-12">Our Collection</h2>
-
-            <div id="filterContainer" class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-button active bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-300 rounded-full shadow-sm" data-category="all">All Items</button>
-                </div>
-
-            <div id="itemGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                </div>
-        </div>
-    </section>
-
-    <section id="contact" class="bg-gray-100 py-16">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-6">Get In Touch</h2>
-            <p class="text-gray-600 mb-8 text-lg">Ready to plan your perfect event? Contact us for a consultation!</p>
-            <div class="space-y-4 md:space-y-0 md:space-x-8">
-                <p class="text-xl text-gray-700"><strong class="font-semibold">Phone:</strong> (123) 456-7890</p>
-                <p class="text-xl text-gray-700"><strong class="font-semibold">Email:</strong> info@tharuweddingcenter.com</p>
-                <p class="text-xl text-gray-700"><strong class="font-semibold">Address:</strong> 123 Wedding Lane, Colombo, Sri Lanka</p>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <img
+              src="./img/tharu-bussiness-card.webp"
+              alt="About Tharu Wedding Center"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+          <div class="col-lg-6">
+            <h2 class="section-title font-playfair">Our Story</h2>
+            <p class="lead">
+              Tharu Wedding Center has been creating magical wedding experiences
+              for over a decade.
+            </p>
+            <p>
+              2010 දී ආරම්භ කරන ලද අප, අලංකාරය සොයන ජෝඩු සඳහා මංගල සැරසිලි,
+              සියලුම උත්සව අවස්තා සදහා සැරසිලි සහ කේටරින් සේවා ලබා දෙන්නෙමු.
+              අපගේ උත්සව භාණ්ඩ එකතුවේ ඔබේ විශේෂ දිනය විශ්මයජනක සිදුවීමක් බවට පත්
+              කිරීම සඳහා හොඳම සැරසිලි, කේටරින් සහ අලංකාර හට් ඇතුලු තවත් බොහෝ දේ
+              අන්තර්ගතවේ.
+            </p>
+            <p>
+              කැපවූ වෘත්තිකයන් කණ්ඩායමක් සහ පිලිවෙලක් ඇතිව, ඔබේ සිහින වල විවාහ
+              මංගල්‍යය හෝ උත්සව නිර්මාණය කිරීම සඳහා සෑම විස්තරයක්ම ඉතා සූක්ෂම
+              ලෙස සැලසුම් කර ක්‍රියාත්මක කරන බව අපි සහතික කරමු.
+            </p>
+            <div class="mt-4">
+              <a href="#contact" class="btn btn-primary me-2">සම්බන්ද කරගන්න</a>
+              <a href="#items" class="btn btn-outline-dark">පොටෝ ඇල්බමය</a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="currentYear"></span> Tharu Wedding Center. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Designed with love for beautiful weddings.</p>
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="section-title font-playfair">Why Choose Us</h2>
+          <p class="lead">
+            Premium quality and exceptional service for your special day
+          </p>
         </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon">
+                <i class="bi bi-stars fs-1 text-primary"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Premium Quality</h4>
+              <p>
+                All our items are meticulously maintained and of the highest
+                quality to ensure your wedding looks flawless.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon">
+                <i class="bi bi-currency-exchange fs-1 text-primary"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Affordable Rates</h4>
+              <p>
+                Luxury doesn't have to break the bank. Our competitive pricing
+                makes elegance accessible.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon">
+                <i class="bi bi-truck fs-1 text-primary"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Delivery & Setup</h4>
+              <p>
+                We handle delivery, setup, and breakdown so you can focus on
+                enjoying your special day.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon">
+                <i class="bi bi-person-check fs-1 text-primary"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Expert Consultation</h4>
+              <p>
+                Our wedding specialists provide personalized advice to bring
+                your vision to life.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Items Section -->
+    <section id="items" class="py-5">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="section-title font-playfair">Our Collection</h2>
+          <p class="lead">
+            Explore our carefully curated selection of wedding decor items
+          </p>
+        </div>
+
+        <div
+          id="filterContainer"
+          class="d-flex flex-wrap justify-content-center mb-5"
+        >
+          <button class="filter-button active" data-category="all">
+            All Items
+          </button>
+          <button class="filter-button" data-category="Canopy">Canopy</button>
+          <button class="filter-button" data-category="setees">setees</button>
+          <button class="filter-button" data-category="Decor">Decor</button>
+          <button class="filter-button" data-category="Lighting">
+            Lighting
+          </button>
+          <button class="filter-button" data-category="Linens">Linens</button>
+          <button class="filter-button" data-category="Stage">Stage</button>
+        </div>
+
+        <div id="itemGrid" class="row g-4">
+          <!-- Items will be loaded here dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="section-title font-playfair">Happy Couples</h2>
+          <p class="lead">What our clients say about us</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Client"
+                class="testimonial-img"
+              />
+              <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="fst-italic mb-4">
+                "Tharu Wedding Center transformed our wedding into a magical
+                event. Their attention to detail and beautiful decor made our
+                day unforgettable!"
+              </p>
+              <h5 class="fw-bold">Samantha & Rajiv</h5>
+              <p class="text-muted">March 2023 Wedding</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Client"
+                class="testimonial-img"
+              />
+              <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="fst-italic mb-4">
+                "The team was professional and responsive. They understood our
+                vision perfectly and executed it beyond our expectations. Highly
+                recommended!"
+              </p>
+              <h5 class="fw-bold">Priya & Anil</h5>
+              <p class="text-muted">November 2023 Wedding</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="testimonial-card">
+              <img
+                src="https://placehold.co/100x100"
+                alt="Client"
+                class="testimonial-img"
+              />
+              <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <p class="fst-italic mb-4">
+                "We were amazed by the quality and variety of items available.
+                The summer hut and lighting created the perfect ambiance for our
+                outdoor wedding."
+              </p>
+              <h5 class="fw-bold">Nisha & Kamal</h5>
+              <p class="text-muted">January 2024 Wedding</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="section-title font-playfair">Get In Touch</h2>
+          <p class="lead">
+            Ready to plan your perfect wedding? Contact us today!
+          </p>
+        </div>
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <div class="contact-card h-100">
+              <h3 class="mb-4">Contact Information</h3>
+              <div class="d-flex mb-4">
+                <div class="contact-icon me-4">
+                  <i class="bi bi-geo-alt fs-4 text-primary"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold">Address</h5>
+                  <p>Athuparayaya, Dambulla</p>
+                </div>
+              </div>
+              <div class="d-flex mb-4">
+                <div class="contact-icon me-4">
+                  <i class="bi bi-telephone fs-4 text-primary"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold">Phone</h5>
+                  <p>(+94) 76 2751 798</p>
+                  <p>(+94) 72 3319 349</p>
+                </div>
+              </div>
+              <div class="d-flex mb-4">
+                <div class="contact-icon me-4">
+                  <i class="bi bi-envelope fs-4 text-primary"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold">Email</h5>
+                  <p>info@helalk.com</p>
+                </div>
+              </div>
+              <div class="d-flex mb-4">
+                <div class="contact-icon me-4">
+                  <i class="bi bi-clock fs-4 text-primary"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold">Working Hours</h5>
+                  <p>Always Open</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <h5 class="fw-bold mb-3">Follow Us</h5>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-pinterest"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-card h-100">
+              <h3 class="mb-4"><map></map></h3>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2760214699388!2d80.66441297562594!3d7.8661574061049455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afca524331e6d9b%3A0xc7e7d094ec9a9ea9!2sTharu%20wedding%20and%20catering%20center!5e0!3m2!1sen!2slk!4v1749011974028!5m2!1sen!2slk"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h4 class="footer-title">Tharu Wedding Center</h4>
+            <p>
+              Creating unforgettable wedding experiences with our premium decor
+              rentals. We specialize in transforming your special day into a
+              magical event with our exquisite collection.
+            </p>
+            <div class="mt-4">
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#home" class="text-white text-decoration-none">Home</a>
+              </li>
+              <li class="mb-2">
+                <a href="#about" class="text-white text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#items" class="text-white text-decoration-none"
+                  >Our Collection</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#features" class="text-white text-decoration-none"
+                  >Why Choose Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#testimonials" class="text-white text-decoration-none"
+                  >Testimonials</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#contact" class="text-white text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-title">Newsletter</h4>
+            <p>
+              Subscribe to our newsletter for updates on new items and special
+              offers.
+            </p>
+            <form>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr class="my-5 border-secondary" />
+        <div class="text-center py-3">
+          <p>
+            &copy; <span id="currentYear"></span> Tharu Wedding Center. All
+            Rights Reserved.
+          </p>
+          <p class="mb-0">Designed with love for beautiful weddings.</p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Image Modal -->
     <div id="imageModal" class="modal" onclick="closeModalOutside(event)">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="modalCaption" class="modal-caption"></div>
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage" />
+      <div id="modalCaption" class="modal-caption"></div>
     </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
