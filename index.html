@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tharu Wedding Center - Wedding Decor Rentals</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Sinhala', Poppins, sans-serif;
+            background-color: #fdfbf7; /* Soft off-white background */
+        }
+        .hero-bg {
+            background-image: url('./img/front.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .font-playfair {
+            font-family: 'Poppins', serif;
+        }
+        .filter-button {
+            transition: all 0.3s ease;
+        }
+        .filter-button.active {
+            background-color: #c5a47e; /* Dusty Rose / Gold accent */
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .item-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Ensures image corners are rounded with the card */
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .item-card img {
+            transition: transform 0.3s ease;
+        }
+        .item-card:hover img {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-playfair font-bold text-gray-800">Tharu Wedding Center</h1>
+            <nav>
+                <a href="#items" class="text-gray-600 hover:text-c5a47e px-3 py-2 rounded-md text-sm font-medium">Our Items</a>
+                <a href="#contact" class="text-gray-600 hover:text-c5a47e px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-bg h-96 flex items-center justify-center text-white">
+        <div class="text-center bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-5xl font-playfair font-bold mb-4">Best Wedding & Decor Items Rental Service</h2>
+            <p class="text-xl">Beautiful decor rentals for unforgettable moments.</p>
+        </div>
+    </section>
+
+    <section id="items" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-playfair font-bold text-center text-gray-800 mb-12">Our Collection</h2>
+
+            <div id="filterContainer" class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-button active bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-300 rounded-full shadow-sm" data-category="all">All Items</button>
+                </div>
+
+            <div id="itemGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-6">Get In Touch</h2>
+            <p class="text-gray-600 mb-8 text-lg">Ready to plan your perfect event? Contact us for a consultation!</p>
+            <div class="space-y-4 md:space-y-0 md:space-x-8">
+                <p class="text-xl text-gray-700"><strong class="font-semibold">Phone:</strong> (123) 456-7890</p>
+                <p class="text-xl text-gray-700"><strong class="font-semibold">Email:</strong> info@tharuweddingcenter.com</p>
+                <p class="text-xl text-gray-700"><strong class="font-semibold">Address:</strong> 123 Wedding Lane, Colombo, Sri Lanka</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="currentYear"></span> Tharu Wedding Center. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed with love for beautiful weddings.</p>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal" onclick="closeModalOutside(event)">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
