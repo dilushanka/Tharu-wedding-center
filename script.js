@@ -1,19 +1,19 @@
 // --- Item Data ---
         const items = [
-            { id: 1, name: "Setee", category: "Setees", imageUrl: "./img/white-decore.jpg", description: "A beautiful summer hut, perfect for outdoor ceremonies or photo booths." },
-            { id: 2, name: "12X12 Canopy", category: "Canopy", imageUrl: "./img/12x12-hut.webp", description: "A luxurious canopy to create a stunning focal point for your event." },
-            { id: 3, name: "Buffet", category: "Buffet", imageUrl: "./img/buffet-cannepy.webp", description: "We have meny decorated buffet" },
-            { id: 4, name: "inside Buffet", category: "Buffet", imageUrl: "./img/buffet-set.webp", description: "Stylish Chiavari chairs, a popular choice for wedding receptions." },
-            { id: 5, name: "Deluxe Buffet Set", category: "Buffet", imageUrl: "./img/buffet-set-2.webp", description: "Complete buffet set with chafing dishes, serving utensils, and platters." },
-            { id: 6, name: "Porcelain Dinner Plates", category: "Tableware", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Dinner+Plates", description: "Fine porcelain dinner plates to add a touch of sophistication." },
-            { id: 7, name: "Crystal Wine Glasses", category: "Tableware", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Wine+Glasses", description: "Elegant crystal wine glasses for your guests to toast the occasion." },
-            { id: 8, name: "Ornate Settee Back Drop", category: "Decor", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Settee+Backdrop", description: "A stunning settee backdrop, perfect for the main couple's seating area." },
-            { id: 9, name: "Lush Floral Centerpiece", category: "Decor", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Floral+Centerpiece", description: "Beautiful floral centerpieces to adorn your tables. Customizable designs." },
-            { id: 10, name: "Twinkling Fairy Lights", category: "Lighting", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Fairy+Lights", description: "Magical fairy lights to create a warm and inviting ambiance." },
-            { id: 11, name: "Elegant Table Runners", category: "Linens", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Table+Runners", description: "High-quality table runners in various colors and fabrics." },
-            { id: 12, name: "Vintage Lanterns", category: "Lighting", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Vintage+Lanterns", description: "Charming vintage lanterns for a rustic or classic wedding theme." },
-            { id: 13, name: "Satin Chair Sashes", category: "Linens", imageUrl: "https://placehold.co/600x400/8e6c4d/FFFFFF?text=Chair+Sashes", description: "Luxurious satin chair sashes to complement your chair decor." },
-            { id: 14, name: "ස්ටේජ්", category: "Stage", imageUrl: "./img/stage-for-bana.jpg", description: "ධර්ම දේශනා සදහා ස්ටේජ්." }
+            { id: 1, name: "Setee", category: "Setees", imageUrl: "img/Setee/white-decore.webp", description: "A beautiful summer hut, perfect for outdoor ceremonies or photo booths." },
+            { id: 2, name: "12X12 Canopy", category: "Canopy", imageUrl: "img/Hut/12x12-hut.webp", description: "A luxurious canopy to create a stunning focal point for your event." },
+            { id: 3, name: "Buffet", category: "Buffet", imageUrl: "img/Hut/buffet-cannepy.webp", description: "We have meny decorated buffet" },
+            { id: 4, name: "inside Buffet", category: "Buffet", imageUrl: "./img/Buffet/buffet-set.webp", description: "Stylish Chiavari chairs, a popular choice for wedding receptions." },
+            { id: 5, name: "Deluxe Buffet Set", category: "Buffet", imageUrl: "./img/Buffet/buffet-set-2.webp", description: "Complete buffet set with chafing dishes, serving utensils, and platters." },
+            { id: 6, name: "Buffet Set", category: "Buffet", imageUrl: "img/Buffet/buffet-set-3.webp", description: "Complete buffet set with chafing dishes, serving utensils, and platters." },
+            { id: 7, name: "Buffet Set", category: "Buffet", imageUrl: "img/Buffet/buffet-set-wedding.webp", description: "Elegant crystal wine glasses for your guests to toast the occasion." },
+            { id: 8, name: "Entrance", category: "Entrance", imageUrl: "img/Decor/welcome-items-EDIT.jpg", description: "A beautiful entrance." },
+            { id: 9, name: "Wooden Beautiful Cake table", category: "Cake Table", imageUrl: "img/Decor/cake-table.jpg", description: "Beautiful floral centerpieces to adorn your tables. Customizable designs." },
+            { id: 10, name: "Wedding Cake", category: "Wedding Cake", imageUrl: "img/Decor/cake.webp", description: "Stunning Cake decorse." },
+            { id: 11, name: "Wedding Cake", category: "Wedding Cake", imageUrl: "img/Decor/cake-1.webp", description: "Stunning Cake decorse." },
+            { id: 12, name: "Entrance", category: "Entrance", imageUrl: "img/Decor/entrass-with-hut.webp", description: "A beautiful entrance." },
+            { id: 13, name: "Entrance", category: "Entrance", imageUrl: "img/Decor/entrass-wite-red.webp", description: "entrass with red flowers" },
+            { id: 14, name: "ස්ටේජ්", category: "Stage", imageUrl: "img/Stage/stage-for-bana.webp", description: "ධර්ම දේශනා සදහා ස්ටේජ්." }
         ];
 
         const itemGrid = document.getElementById('itemGrid');
